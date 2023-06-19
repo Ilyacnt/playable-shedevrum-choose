@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yandex Shedevrum</title>
+  </head>
+  <body>
+    <div class="ContentContainer" id="page1">
+      <div class="TextUSP">Сгенерируйте картинку по&nbsp;одному из&nbsp;запросов</div>
+      <div class="AnswerVariants">    
+      <img src="<%= require('./assets/Cursor.svg') %>" id="Cursor" />
+      </div>
+    </div>
+    <div class="ContentContainer" id="page2">
+        <img src="<%= require('./assets/LoaderShedevr.svg') %>" class="Loader" />
+        <p class="LoaderText">Подождите...</p>
+    </div>
+    <div class="ContentContainer" id="page3">
+        <div class="TextUSP" id="GeneratedImageText">Text</div>
+        <img id="GeneratedImage">
+        <div class="Answer button" id="TryAgainButton">Попробовать ещё</div>
+    </div>
+    <div class="ContentContainer" id="page4">
+        <div class="FakeInput">напишите запрос для
+            изображения...</div>
+        <div class="Answer button" id="USPButton">Сгенерировать</div>
+    </div>
+
+    <div class="BadgeContainer">
+      <div class="ApplicationBadge">
+        <img src="<%= require('./assets/ShedevrumLogo.png') %>" />
+        <p>Шедеврум</p>
+      </div>
+      <div class="DownloadButton button" id="DownloadButton">Скачать</div>
+    </div>
+
+  </body>
+</html>
