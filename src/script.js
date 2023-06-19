@@ -6,9 +6,9 @@ import Cursor from './assets/Cursor.svg'
 const CONFIG = {
   pagesCount: 4,
   answerVariants: [
-    { text: 'Text1', image: Image1 },
-    { text: 'Text2', image: Image2 },
-    { text: 'Text3', image: Image3 },
+    { text: 'Хомяк-терминатор', image: Image1 },
+    { text: 'Человек-штрих', image: Image2 },
+    { text: 'Чудо-юдо', image: Image3 },
   ],
   animationDuration: 500,
   loadingDuration: 2000,
@@ -24,6 +24,7 @@ class PageManager {
   }
   currentPage = 1
 
+  #intervalAnimation = null
   quizChooser = null
 
   constructor(quizChooser) {
@@ -53,8 +54,6 @@ class PageManager {
     this.#initPages()
     this.#initAnswerVariants()
     this.#initCursorOnFirstPage()
-
-    window.onresize = () => this.#initCursorOnFirstPage()
   }
 
   #initPages() {
@@ -73,6 +72,7 @@ class PageManager {
       this.nodes.answerVariants[`answerVariant${i}`].innerText = answerVariant.text
       this.nodes.answerVariants[`answerVariant${i}`].addEventListener('click', () => {
         this.quizChooser.onAnswerClick(answerVariant)
+        clearInterval(this.#intervalAnimation)
       })
 
       this.nodes.pages['page1']
@@ -87,7 +87,7 @@ class PageManager {
     this.nodes.cursor.style.top = this.#getAbsolutePositon(this.nodes.answerVariants[`answerVariant${counter}`]).top -60 +'px'
     this.nodes.cursor.style.left = this.#getAbsolutePositon(this.nodes.answerVariants[`answerVariant${counter}`]).left - 60 +'px'
 
-    const interval = setInterval(() => {
+    this.#intervalAnimation = setInterval(() => {
         this.nodes.cursor.style.top = this.#getAbsolutePositon(this.nodes.answerVariants[`answerVariant${counter}`]).top -60 +'px'
         this.nodes.cursor.style.left = this.#getAbsolutePositon(this.nodes.answerVariants[`answerVariant${counter}`]).left - 60 +'px'
         if (counter < CONFIG.answerVariants.length -1) {
@@ -103,9 +103,9 @@ class PageManager {
   #getAbsolutePositon(node) {
     const rect = node.getBoundingClientRect();
     return {
-      left: rect.right + window.scrollX,
-      top: rect.bottom + window.scrollY
-    };
+      left: (rect.left + rect.width / 2),
+      top: rect.bottom 
+    }
   }
 
   #hideNode(node) {
@@ -139,7 +139,12 @@ class PageManager {
         document.getElementById('TryAgainButton').addEventListener('click', () => this.goToNextPage())
         break
       case 4:
-        document.getElementById('page4').addEventListener('click', () => this.USPAction())
+        let page4 = document.getElementById('page4')
+        page4.addEventListener('click', () => this.USPAction())
+        this.nodes.cursor.parentNode.removeChild(this.nodes.cursor)
+        page4.appendChild(this.nodes.cursor)
+        this.nodes.cursor.style.top = 20 + '%'
+        this.nodes.cursor.style.left = 50 + '%'
         break
       default:
         break

@@ -176,6 +176,8 @@ body {
   width: 8rem;
   background: none;
   position: absolute;
+  left: 50%;
+  right: 50%;
   pointer-events: none;
   /* z-index: 10; */
   animation: 1s infinite forwards cursor;
