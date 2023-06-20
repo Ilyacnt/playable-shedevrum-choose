@@ -29,6 +29,7 @@ html,
 body {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 body {
@@ -48,11 +49,15 @@ body {
   background: var(--secondary);
   width: fit-content;
   cursor: pointer;
+  text-align: center;
 }
 
 .DownloadButton {
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
   font-size: 2.5rem;
   background: #3478e5;
+  margin: 0 0 0 auto;
 }
 
 .BadgeContainer {
@@ -66,6 +71,10 @@ body {
   padding: 0.938rem 5.625rem;
   /* position: fixed;
   bottom: 0; */
+}
+
+.BadgeContainer p {
+  font-size: 2rem;
 }
 
 .ApplicationBadge > * {
@@ -83,11 +92,17 @@ body {
   gap: 1.375rem;
 }
 
+.ApplicationBadge img {
+   width: 6.5rem;
+}
+
 /* Content */
 
 .ContentContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 6.875rem 5rem;
   height: 100%;
   gap: 3.75rem;
@@ -125,7 +140,7 @@ body {
   font-stretch: 118;
   font-variation-settings: 'opsz' 20;
   text-align: center;
-  font-size: 3.569rem;
+  font-size: 3rem;
   font-weight: bold;
 }
 
@@ -134,12 +149,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  /* height: 100%; */
   gap: 3.5rem;
 }
 
 .Answer {
-  font-size: 3.864rem;
+  font-size: 3rem;
 }
 
 .Answer:active {
@@ -168,7 +183,7 @@ body {
 
 .FakeInput {
   color: #989898;
-  font-size: 3.569rem;
+  font-size: 3rem;
   text-align: start;
 }
 
@@ -199,36 +214,171 @@ body {
 }
 
 
-/* MEDIA QUERIES */
+/* MEDIA QUERIES FOR PORTRAIT */
 
+/* @media (min-width: 100px) and (min-height: 100px) {
+  html {
+      font-size: 6px;
+  }
+}
 
-@media (min-width: 0px) and (max-width: 430px) {
+@media (min-width: 320px) and (min-height: 320px) {
+  html {
+      font-size: 8px;
+  }
+}
+
+@media (min-width: 510px) and (min-height: 510px) {
+  html {
+      font-size: 10px;
+  }
+}
+
+@media (min-width: 570px) and (min-height: 570px) {
   html {
       font-size: 11px;
   }
 }
 
-@media (min-width: 430px) {
+@media (min-width: 615px) and (min-height: 615px) {
+  html {
+      font-size: 12px;
+  }
+}
+
+@media (min-width: 700px) and (min-height: 700px) {
   html {
       font-size: 13px;
   }
 }
 
-@media (min-width: 500px) {
-  html { 
+@media (min-width: 765px) and (min-height: 765px) {
+  html {
       font-size: 14px;
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 810px) and (min-height: 810px) {
   html {
-      font-size: 16px;
+      font-size: 15px;
   }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 870px) and (min-height: 870px) {
+  html {
+      font-size: 17px;
+  }
+}
+
+@media (min-width: 975px) and (min-height: 975px)  {
+  html { 
+      font-size: 19px;
+  }
+}
+
+@media (min-width: 1080px) and (min-height: 1080px) {
   html {
       font-size: 20px;
   }
 }
 
+@media (min-width: 1220px) and (min-height: 1200px) {
+  html {
+      font-size: 22px;
+  }
+} */
+/* /MEDIA QUERIES FOR PORTRAIT */
+
+/* MEDIA QUERIES FOR LANDSCAPE */
+
+@media (min-height: 0px) {
+  .AnswerVariants {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
+
+@media (min-height: 100px) and (min-width: 100px) {
+  html {
+      font-size: 6px;
+  }
+}
+
+@media (min-height: 396px) and (min-width: 320px) {
+  html {
+      font-size: 8px;
+  }
+
+  #page3 {
+    flex-wrap: wrap;
+  }
+
+  .GeneratedImage {
+    width: 26.875rem;
+    height: 26.875rem;
+  }
+
+}
+
+@media (min-height: 510px) and (min-width: 510px) {
+  html {
+      font-size: 10px;
+  }
+
+  
+}
+
+@media (min-height: 570px) and (min-width: 570px) {
+  html {
+      font-size: 11px;
+  }
+}
+
+@media (min-height: 615px) and (min-width: 615px) {
+  html {
+      font-size: 12px;
+  }
+}
+
+@media (min-height: 700px) and (min-width: 700px) {
+  html {
+      font-size: 12px;
+  }
+}
+
+@media (min-height: 768px) and (min-width: 765px) {
+  html {
+      font-size: 13px;
+  }
+}
+
+@media (min-height: 810px) and (min-width: 810px) {
+  html {
+      font-size: 13px;
+  }
+}
+
+@media (min-height: 870px) and (min-width: 870px) {
+  html {
+      font-size: 16px;
+  }
+}
+
+@media (min-height: 913px) and (min-width: 975px)  {
+  html { 
+      font-size: 18px;
+  }
+}
+
+@media (min-height: 1080px) and (min-width: 1080px) {
+  html {
+      font-size: 19px;
+  }
+}
+
+@media (min-height: 1220px) and (min-width: 1200px) {
+  html {
+      font-size: 22px;
+  }
+}
+/* /MEDIA QUERIES FOR LANDSCAPE */
